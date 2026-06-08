@@ -165,6 +165,7 @@ const Register = () => {
                                             placeholder="Enter your full name"
                                             className="input-primary pl-12"
                                             required
+                                            autocomplete="name"
                                         />
                                     </div>
                                 </div>
@@ -187,6 +188,7 @@ const Register = () => {
                                             className="input-primary pl-12"
                                             required
                                             disabled={otpSent}
+                                            autocomplete="username"
                                         />
                                     </div>
                                 </div>
@@ -207,6 +209,7 @@ const Register = () => {
                                             placeholder="Enter your email"
                                             className="input-primary pl-12"
                                             required
+                                            autocomplete="email"
                                         />
                                     </div>
                                 </div>
@@ -227,6 +230,7 @@ const Register = () => {
                                             placeholder="Create a password (min 6 characters)"
                                             className="input-primary pl-12 pr-12"
                                             required
+                                            autocomplete="new-password"
                                         />
                                         <button
                                             type="button"
@@ -254,6 +258,7 @@ const Register = () => {
                                             placeholder="Re-enter your password"
                                             className="input-primary pl-12"
                                             required
+                                            autocomplete="new-password"
                                         />
                                     </div>
                                 </div>
@@ -315,6 +320,7 @@ const Register = () => {
                                         maxLength="6"
                                         className="input-primary text-center text-2xl tracking-widest font-bold"
                                         required
+                                        autocomplete="one-time-code"
                                     />
                                     <p className="text-sm text-ash mt-2 text-center">
                                         OTP sent to {formData.mobileNumber}

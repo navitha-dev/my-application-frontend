@@ -98,6 +98,7 @@ const Login = () => {
                                     maxLength="10"
                                     className="input-primary pl-12"
                                     required
+                                    autocomplete="username"
                                 />
                             </div>
                         </div>
@@ -118,6 +119,7 @@ const Login = () => {
                                     placeholder="Enter your password"
                                     className="input-primary pl-12 pr-12"
                                     required
+                                    autocomplete="current-password"
                                 />
                                 <button
                                     type="button"

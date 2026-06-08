@@ -132,6 +132,7 @@ const ForgotPassword = () => {
                                         maxLength="10"
                                         className="input-primary pl-12"
                                         required
+                                        autocomplete="username"
                                     />
                                 </div>
                             </div>
@@ -172,6 +173,7 @@ const ForgotPassword = () => {
                                         maxLength="6"
                                         className="input-primary pl-12"
                                         required
+                                        autocomplete="one-time-code"
                                     />
                                 </div>
                             </div>
@@ -192,6 +194,7 @@ const ForgotPassword = () => {
                                         placeholder="Enter new password"
                                         className="input-primary pl-12 pr-12"
                                         required
+                                        autocomplete="new-password"
                                     />
                                     <button
                                         type="button"
@@ -219,6 +222,7 @@ const ForgotPassword = () => {
                                         placeholder="Confirm new password"
                                         className="input-primary pl-12"
                                         required
+                                        autocomplete="new-password"
                                     />
                                 </div>
                             </div>
