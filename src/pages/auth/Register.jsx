@@ -97,7 +97,7 @@ const Register = () => {
             }
         } catch (error) {
             toast.error(error.message || 'Registration failed');
-            if (error.message.includes('OTP')) {
+            if (error.message?.includes('OTP')) {
                 setStep(2);
             }
         } finally {

@@ -87,8 +87,9 @@ const SystemLogs = () => {
     const filteredFrontendLogs = frontendLogs.filter(log => {
         const matchesLevel = filterLevel === 'ALL' || log.level === filterLevel;
         const searchInput = searchTerm.toLowerCase();
-        const matchesSearch = log.message?.toLowerCase().includes(searchInput) ||
-            log.data?.toLowerCase().includes(searchInput);
+        const matchesSearch = 
+            (log.message?.toLowerCase()?.includes(searchInput) ?? false) ||
+            (log.data?.toLowerCase()?.includes(searchInput) ?? false);
         return matchesLevel && matchesSearch;
     });
 

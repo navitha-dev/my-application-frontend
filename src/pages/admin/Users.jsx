@@ -61,9 +61,9 @@ const AdminUsers = () => {
 
     const filteredUsers = users.filter(
         (user) =>
-            user.fullName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            user.mobileNumber.includes(searchTerm) ||
-            user.email.toLowerCase().includes(searchTerm.toLowerCase())
+            (user.fullName?.toLowerCase()?.includes(searchTerm.toLowerCase()) ?? false) ||
+            (user.mobileNumber?.includes(searchTerm) ?? false) ||
+            (user.email?.toLowerCase()?.includes(searchTerm.toLowerCase()) ?? false)
     );
 
     return (
