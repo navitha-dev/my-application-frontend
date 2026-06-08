@@ -156,6 +156,15 @@ const ForgotPassword = () => {
                         </form>
                     ) : (
                         <form onSubmit={handleResetPassword} className="space-y-6">
+                            {/* Hidden username field for accessibility and password managers */}
+                            <input
+                                type="text"
+                                name="username"
+                                value={formData.mobileNumber}
+                                autoComplete="username"
+                                readOnly
+                                style={{ display: 'none' }}
+                            />
                             {/* OTP */}
                             <div>
                                 <label htmlFor="otp" className="block text-sm font-medium text-obsidian mb-2">

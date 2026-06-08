@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const rawApiUrl = import.meta.env.VITE_API_URL || 'https://my-application-backend.navithajune06.workers.dev';
-const API_BASE_URL = rawApiUrl.endsWith('/api') ? rawApiUrl : `${rawApiUrl.replace(/\/$/, '')}/api`;
+const API_BASE_URL = rawApiUrl?.endsWith('/api') ? rawApiUrl : `${rawApiUrl?.replace(/\/$/, '')}/api`;
 
 // Create axios instance
 const api = axios.create({
