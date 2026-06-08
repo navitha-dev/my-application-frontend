@@ -45,6 +45,9 @@ const Register = () => {
             const response = await authService.sendOtp(formData.mobileNumber, 'REGISTRATION');
 
             if (response.success) {
+                console.log('--- DEVELOPMENT OTP ---');
+                console.log(`OTP received: ${response.otp}`);
+                console.log('------------------------');
                 toast.success('OTP sent to your mobile number');
                 setOtpSent(true);
                 setStep(2);

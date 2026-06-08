@@ -38,6 +38,9 @@ const ForgotPassword = () => {
         try {
             const response = await authService.sendOtp(formData.mobileNumber, 'PASSWORD_RESET');
             if (response.success) {
+                console.log('--- DEVELOPMENT OTP ---');
+                console.log(`OTP received: ${response.otp}`);
+                console.log('------------------------');
                 toast.success('OTP sent successfully!');
                 setOtpSent(true);
                 setStep(2);
