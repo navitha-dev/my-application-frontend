@@ -254,7 +254,51 @@ const Profile = () => {
                         </div>
                         <div className="flex-1">
                             <p className="font-semibold text-obsidian">About Royal Groww</p>
-                            <p className="text-xs text-ash">Company info & Legal</p>
+                            <p className="text-xs text-ash">Company story & vision</p>
+                        </div>
+                        <FiChevronRight className="text-ash" />
+                    </Link>
+
+                    <Link to="/contact" className="flex items-center p-4 hover:bg-gray-50 rounded-lg transition-colors">
+                        <div className="p-2 bg-blue-50 rounded-lg mr-3">
+                            <FiPhone size={20} className="text-blue-600" />
+                        </div>
+                        <div className="flex-1">
+                            <p className="font-semibold text-obsidian">Contact Us</p>
+                            <p className="text-xs text-ash">Get in touch with support</p>
+                        </div>
+                        <FiChevronRight className="text-ash" />
+                    </Link>
+
+                    <Link to="/privacy-policy" className="flex items-center p-4 hover:bg-gray-50 rounded-lg transition-colors">
+                        <div className="p-2 bg-green-50 rounded-lg mr-3">
+                            <FiShield size={20} className="text-green-600" />
+                        </div>
+                        <div className="flex-1">
+                            <p className="font-semibold text-obsidian">Privacy Policy</p>
+                            <p className="text-xs text-ash">Data protection & rules</p>
+                        </div>
+                        <FiChevronRight className="text-ash" />
+                    </Link>
+
+                    <Link to="/terms-conditions" className="flex items-center p-4 hover:bg-gray-50 rounded-lg transition-colors">
+                        <div className="p-2 bg-indigo-50 rounded-lg mr-3">
+                            <FiSettings size={20} className="text-indigo-600" />
+                        </div>
+                        <div className="flex-1">
+                            <p className="font-semibold text-obsidian">Terms & Conditions</p>
+                            <p className="text-xs text-ash">User agreement & guidelines</p>
+                        </div>
+                        <FiChevronRight className="text-ash" />
+                    </Link>
+
+                    <Link to="/refund-policy" className="flex items-center p-4 hover:bg-gray-50 rounded-lg transition-colors">
+                        <div className="p-2 bg-red-50 rounded-lg mr-3">
+                            <FiAlertTriangle size={20} className="text-red-500" />
+                        </div>
+                        <div className="flex-1">
+                            <p className="font-semibold text-obsidian">Refund & Cancellation</p>
+                            <p className="text-xs text-ash">Transaction & refund policies</p>
                         </div>
                         <FiChevronRight className="text-ash" />
                     </Link>
@@ -265,7 +309,7 @@ const Profile = () => {
                         </div>
                         <div className="flex-1 text-left">
                             <p className="font-semibold text-obsidian">Help & Support</p>
-                            <p className="text-xs text-ash">Get assistance 24/7</p>
+                            <p className="text-xs text-ash">Create tickets & resolve queries</p>
                         </div>
                         <FiChevronRight className="text-ash" />
                     </Link>

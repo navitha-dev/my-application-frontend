@@ -177,7 +177,7 @@ const Login = () => {
 
                 {/* Footer */}
                 <p className="text-center text-ash text-xs mt-8">
-                    By logging in, you agree to our Terms & Privacy Policy.
+                    By logging in, you agree to our <Link to="/terms-conditions" className="text-primary hover:underline font-medium">Terms</Link> & <Link to="/privacy-policy" className="text-primary hover:underline font-medium">Privacy Policy</Link>.
                 </p>
             </motion.div>
         </div>

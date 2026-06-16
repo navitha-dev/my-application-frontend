@@ -404,7 +404,7 @@ const Products = () => {
                                     />
                                 </div>
                                 <label htmlFor="agree_terms" className="text-xs text-charcoal leading-relaxed cursor-pointer select-none">
-                                    I acknowledge that I have read the investment details and agree to the <span className="text-primary font-medium">Terms of Service</span> and <span className="text-primary font-medium">Risk Disclosure</span>. I understand that returns are subject to market risks.
+                                    I acknowledge that I have read the investment details and agree to the <Link to="/terms-conditions" className="text-primary hover:underline font-medium">Terms of Service</Link> and <Link to="/privacy-policy" className="text-primary hover:underline font-medium">Risk Disclosure</Link>. I understand that returns are subject to market risks.
                                 </label>
                             </div>
                         </div>

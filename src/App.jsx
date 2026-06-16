@@ -30,6 +30,10 @@ import Calculator from './pages/user/Calculator';
 import Academy from './pages/user/Academy';
 import Watchlist from './pages/user/Watchlist';
 import AboutUs from './pages/user/AboutUs';
+import ContactUs from './pages/user/ContactUs';
+import RefundPolicy from './pages/user/RefundPolicy';
+import PrivacyPolicy from './pages/user/PrivacyPolicy';
+import TermsConditions from './pages/user/TermsConditions';
 import UserNotifications from './pages/user/Notifications';
 
 // Admin Pages
@@ -79,6 +83,11 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/refund-policy" element={<RefundPolicy />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-conditions" element={<TermsConditions />} />
 
             {/* Protected User Routes wrapped in UserLayout */}
             <Route element={<ProtectedRoute><UserLayout /></ProtectedRoute>}>
@@ -100,7 +109,6 @@ function App() {
               <Route path="/calculator" element={<Calculator />} />
               <Route path="/academy" element={<Academy />} />
               <Route path="/watchlist" element={<Watchlist />} />
-              <Route path="/about" element={<AboutUs />} />
               <Route path="/notifications" element={<UserNotifications />} />
             </Route>
 

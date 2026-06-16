@@ -387,7 +387,7 @@ const Register = () => {
 
                 {/* Footer */}
                 <p className="text-center text-ash text-xs mt-8">
-                    By registering, you agree to our Terms & Privacy Policy.
+                    By registering, you agree to our <Link to="/terms-conditions" className="text-primary hover:underline font-medium">Terms</Link> & <Link to="/privacy-policy" className="text-primary hover:underline font-medium">Privacy Policy</Link>.
                 </p>
             </motion.div>
         </div>
