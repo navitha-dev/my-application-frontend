@@ -1,10 +1,15 @@
 import api from './axios.config';
 
 export const authService = {
-    // Send OTP for registration
-    sendOtp: async (mobileNumber, otpType = 'REGISTRATION') => {
+    // Send OTP for registration or password reset (supports email or mobileNumber)
+    sendOtp: async (target, otpType = 'REGISTRATION', mobileNumber = null) => {
+        if (typeof target === 'object' && target !== null) {
+            return await api.post('/auth/send-otp', target);
+        }
+        const isEmail = typeof target === 'string' && target.includes('@');
         return await api.post('/auth/send-otp', {
-            mobileNumber,
+            email: isEmail ? target : undefined,
+            mobileNumber: !isEmail ? target : mobileNumber,
             otpType,
         });
     },

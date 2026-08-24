@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { authService } from '../../api/authService';
 import { motion } from 'framer-motion';
-import { FiPhone, FiLock, FiEye, FiEyeOff, FiMessageSquare } from 'react-icons/fi';
+import { FiMail, FiLock, FiEye, FiEyeOff, FiMessageSquare } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 
 const ForgotPassword = () => {
     const [step, setStep] = useState(1); // 1: Send OTP, 2: Verify & Reset
     const [formData, setFormData] = useState({
-        mobileNumber: '',
+        email: '',
         otp: '',
         newPassword: '',
         confirmPassword: ''
@@ -27,21 +27,22 @@ const ForgotPassword = () => {
     };
 
     const handleSendOtp = async (e) => {
-        e.preventDefault();
+        if (e && e.preventDefault) e.preventDefault();
 
-        if (formData.mobileNumber.length !== 10) {
-            toast.error('Please enter a valid 10-digit mobile number');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!formData.email || !emailRegex.test(formData.email.trim())) {
+            toast.error('Please enter a valid email address');
             return;
         }
 
         setLoading(true);
         try {
-            const response = await authService.sendOtp(formData.mobileNumber, 'PASSWORD_RESET');
+            const response = await authService.sendOtp(formData.email.trim(), 'PASSWORD_RESET');
             if (response.success) {
                 console.log('--- DEVELOPMENT OTP ---');
                 console.log(`OTP received: ${response.otp}`);
                 console.log('------------------------');
-                toast.success('OTP sent successfully!');
+                toast.success(`OTP sent to ${formData.email.trim()}`);
                 setOtpSent(true);
                 setStep(2);
             }
@@ -73,8 +74,8 @@ const ForgotPassword = () => {
         setLoading(true);
         try {
             const response = await authService.resetPassword({
-                mobileNumber: formData.mobileNumber,
-                otp: formData.otp,
+                email: formData.email.trim(),
+                otp: formData.otp.trim(),
                 newPassword: formData.newPassword
             });
 
@@ -117,22 +118,21 @@ const ForgotPassword = () => {
                     {step === 1 ? (
                         <form onSubmit={handleSendOtp} className="space-y-6">
                             <div>
-                                <label htmlFor="mobileNumber" className="block text-sm font-medium text-obsidian mb-2">
-                                    Mobile Number
+                                <label htmlFor="email" className="block text-sm font-medium text-obsidian mb-2">
+                                    Email Address
                                 </label>
                                 <div className="relative">
-                                    <FiPhone className="absolute left-4 top-1/2 -translate-y-1/2 text-ash" />
+                                    <FiMail className="absolute left-4 top-1/2 -translate-y-1/2 text-ash" />
                                     <input
-                                        type="tel"
-                                        id="mobileNumber"
-                                        name="mobileNumber"
-                                        value={formData.mobileNumber}
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        value={formData.email}
                                         onChange={handleChange}
-                                        placeholder="Enter registered mobile number"
-                                        maxLength="10"
+                                        placeholder="Enter registered email address"
                                         className="input-primary pl-12"
                                         required
-                                        autocomplete="username"
+                                        autocomplete="email"
                                     />
                                 </div>
                             </div>
@@ -160,7 +160,7 @@ const ForgotPassword = () => {
                             <input
                                 type="text"
                                 name="username"
-                                value={formData.mobileNumber}
+                                value={formData.email}
                                 autoComplete="username"
                                 readOnly
                                 style={{ display: 'none' }}
@@ -185,6 +185,20 @@ const ForgotPassword = () => {
                                         autocomplete="one-time-code"
                                     />
                                 </div>
+                                <p className="text-xs text-ash mt-2 text-center">
+                                    OTP sent to {formData.email}
+                                </p>
+                            </div>
+
+                            {/* Resend OTP */}
+                            <div className="text-center">
+                                <button
+                                    type="button"
+                                    onClick={handleSendOtp}
+                                    className="text-gold hover:text-gold-dark text-sm font-medium"
+                                >
+                                    Resend OTP
+                                </button>
                             </div>
 
                             {/* New Password */}

@@ -35,20 +35,45 @@ const Register = () => {
     };
 
     const handleSendOtp = async () => {
+        if (!formData.fullName.trim()) {
+            toast.error('Please enter your full name');
+            return;
+        }
+
         if (formData.mobileNumber.length !== 10) {
             toast.error('Please enter a valid 10-digit mobile number');
             return;
         }
 
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!formData.email || !emailRegex.test(formData.email.trim())) {
+            toast.error('Please enter a valid email address');
+            return;
+        }
+
+        if (!formData.password || formData.password.length < 6) {
+            toast.error('Password must be at least 6 characters');
+            return;
+        }
+
+        if (formData.password !== formData.confirmPassword) {
+            toast.error('Passwords do not match');
+            return;
+        }
+
         setLoading(true);
         try {
-            const response = await authService.sendOtp(formData.mobileNumber, 'REGISTRATION');
+            const response = await authService.sendOtp({
+                email: formData.email.trim(),
+                mobileNumber: formData.mobileNumber.trim(),
+                otpType: 'REGISTRATION'
+            });
 
             if (response.success) {
                 console.log('--- DEVELOPMENT OTP ---');
                 console.log(`OTP received: ${response.otp}`);
                 console.log('------------------------');
-                toast.success('OTP sent to your mobile number');
+                toast.success(`OTP sent to ${formData.email}`);
                 setOtpSent(true);
                 setStep(2);
             }
@@ -323,7 +348,7 @@ const Register = () => {
                                         autocomplete="one-time-code"
                                     />
                                     <p className="text-sm text-ash mt-2 text-center">
-                                        OTP sent to {formData.mobileNumber}
+                                        OTP sent to {formData.email}
                                     </p>
                                 </div>
 
