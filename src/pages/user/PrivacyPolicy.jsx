@@ -28,7 +28,7 @@ const PrivacyPolicy = () => {
                     </span>
                     <h2 className="text-2xl font-bold text-obsidian mt-4 mb-3 font-heading">Our Commitment</h2>
                     <p className="text-sm text-charcoal leading-relaxed">
-                        Royal Groww values your trust and is committed to protecting your personal and financial information. This Privacy Policy details how we collect, store, use, and safeguard your data when you interact with our platform. By registering an account, you consent to the collection and use of your information under this policy.
+                        Royal Groww, operated under the legal business entity name <strong>Royal Groww FinTech Private Limited</strong> (our core business category is digital Wealth Management & Investment Services), values your trust and is committed to protecting your personal and financial information. This Privacy Policy details how we collect, store, use, and safeguard your data when you interact with our platform. By registering an account, you consent to the collection and use of your information under this policy.
                     </p>
                 </motion.div>
 

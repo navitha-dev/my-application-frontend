@@ -47,7 +47,7 @@ const AboutUs = () => {
                     </div>
                     <h3 className="text-2xl font-bold text-obsidian font-heading mb-3">From a Vision to a Movement</h3>
                     <p className="text-charcoal leading-relaxed">
-                        Started in 2020 by a group of ex-bankers and tech enthusiasts, Royal Groww was born from a simple frustration: wealth creation tools were too complex for the average Indian.
+                        Started in 2020 by a group of ex-bankers and tech enthusiasts, <strong>Royal Groww</strong> (registered legally under the entity name <strong>Royal Groww FinTech Private Limited</strong> in the business category of digital Wealth Management & Financial Advisory Services) was born from a simple frustration: wealth creation tools were too complex for the average Indian.
                         <br /><br />
                         What began in a small shared workspace has grown into a family of 150+ dreamers working out of Gurugram, united by a single mission:
                         <span className="font-bold text-obsidian"> to simplify your financial journey.</span>

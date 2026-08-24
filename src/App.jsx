@@ -34,6 +34,8 @@ import ContactUs from './pages/user/ContactUs';
 import RefundPolicy from './pages/user/RefundPolicy';
 import PrivacyPolicy from './pages/user/PrivacyPolicy';
 import TermsConditions from './pages/user/TermsConditions';
+import ShippingPolicy from './pages/user/ShippingPolicy';
+import Landing from './pages/user/Landing';
 import UserNotifications from './pages/user/Notifications';
 
 // Admin Pages
@@ -79,7 +81,7 @@ function App() {
         <div className="App">
           <Routes>
             {/* Public Routes */}
-            <Route path="/" element={<Navigate to="/login" replace />} />
+            <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -88,6 +90,7 @@ function App() {
             <Route path="/refund-policy" element={<RefundPolicy />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
+            <Route path="/shipping-policy" element={<ShippingPolicy />} />
 
             {/* Protected User Routes wrapped in UserLayout */}
             <Route element={<ProtectedRoute><UserLayout /></ProtectedRoute>}>

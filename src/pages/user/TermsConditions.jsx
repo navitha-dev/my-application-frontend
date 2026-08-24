@@ -28,7 +28,7 @@ const TermsConditions = () => {
                     </span>
                     <h2 className="text-2xl font-bold text-obsidian mt-4 mb-3 font-heading">User Agreement</h2>
                     <p className="text-sm text-charcoal leading-relaxed">
-                        Welcome to Royal Groww. By creating an account, depositing money, subscribing to investment plans, or using our mobile application, you agree to comply with and be bound by the following Terms and Conditions. If you do not agree with these terms, you must not use our services.
+                        Welcome to Royal Groww, operated under the legal business entity name <strong>Royal Groww FinTech Private Limited</strong> (our core business category is digital Wealth Management & Investment Services). By creating an account, depositing money, subscribing to investment plans, or using our platform, you agree to comply with and be bound by the following Terms and Conditions. If you do not agree with these terms, you must not use our services.
                     </p>
                 </motion.div>
 

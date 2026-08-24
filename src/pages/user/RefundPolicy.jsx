@@ -28,7 +28,7 @@ const RefundPolicy = () => {
                     </span>
                     <h2 className="text-2xl font-bold text-obsidian mt-4 mb-3 font-heading">Policy Overview</h2>
                     <p className="text-sm text-charcoal leading-relaxed">
-                        At Royal Groww, we strive to maintain complete transparency in our financial operations. As a wealth partner, our services involve processing deposits, allocating capital to third-party secure assets, and distributing daily yield. Please read the following refund, cancellation, and transaction policies carefully.
+                        At Royal Groww, operated under the legal business entity name <strong>Royal Groww FinTech Private Limited</strong> (our core business category is digital Wealth Management & Investment Services), we strive to maintain complete transparency in our financial operations. As a wealth partner, our services involve processing deposits, allocating capital to third-party secure assets, and distributing daily yield. Please read the following refund, cancellation, and transaction policies carefully.
                     </p>
                 </motion.div>
 

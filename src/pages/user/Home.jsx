@@ -24,6 +24,11 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('payment') === 'success') {
+            toast.success('Payment successful! Wallet credited.');
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
         fetchData();
     }, []);
 
@@ -138,7 +143,7 @@ const Home = () => {
                                 <Link to="/recharge" className="btn-primary text-sm py-3 text-center">
                                     Deposit
                                 </Link>
-                                <Link to="/withdraw" className="btn-secondary text-sm py-3 text-center bg-gray-50/50">
+                                <Link to="/withdraw" className="btn-secondary text-sm py-3 text-center">
                                     Withdraw
                                 </Link>
                             </div>

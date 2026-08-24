@@ -14,11 +14,11 @@ const BottomNav = () => {
                     to="/home" 
                     className={`flex flex-col items-center p-2 transition-all duration-300 ${
                         isActive('/home') 
-                        ? 'text-gold transform -translate-y-1' 
-                        : 'text-ash hover:text-gold'
+                        ? 'text-[#00D09C] transform -translate-y-1' 
+                        : 'text-ash hover:text-[#00D09C]'
                     }`}
                 >
-                    <FiHome size={24} className={isActive('/home') ? 'fill-gold/20' : ''} />
+                    <FiHome size={24} className={isActive('/home') ? 'fill-[#00D09C]/20' : ''} />
                     <span className="text-[10px] sm:text-xs mt-1 font-medium">Home</span>
                 </Link>
 
@@ -26,11 +26,11 @@ const BottomNav = () => {
                     to="/products" 
                     className={`flex flex-col items-center p-2 transition-all duration-300 ${
                         isActive('/products') 
-                        ? 'text-gold transform -translate-y-1' 
-                        : 'text-ash hover:text-gold'
+                        ? 'text-[#00D09C] transform -translate-y-1' 
+                        : 'text-ash hover:text-[#00D09C]'
                     }`}
                 >
-                    <FiShoppingBag size={24} className={isActive('/products') ? 'fill-gold/20' : ''} />
+                    <FiShoppingBag size={24} className={isActive('/products') ? 'fill-[#00D09C]/20' : ''} />
                     <span className="text-[10px] sm:text-xs mt-1 font-medium">Invest</span>
                 </Link>
 
@@ -38,11 +38,11 @@ const BottomNav = () => {
                     to="/promotion" 
                     className={`flex flex-col items-center p-2 transition-all duration-300 ${
                         isActive('/promotion') 
-                        ? 'text-gold transform -translate-y-1' 
-                        : 'text-ash hover:text-gold'
+                        ? 'text-[#00D09C] transform -translate-y-1' 
+                        : 'text-ash hover:text-[#00D09C]'
                     }`}
                 >
-                    <FiUsers size={24} className={isActive('/promotion') ? 'fill-gold/20' : ''} />
+                    <FiUsers size={24} className={isActive('/promotion') ? 'fill-[#00D09C]/20' : ''} />
                     <span className="text-[10px] sm:text-xs mt-1 font-medium">Refer</span>
                 </Link>
 
@@ -50,11 +50,11 @@ const BottomNav = () => {
                     to="/profile" 
                     className={`flex flex-col items-center p-2 transition-all duration-300 ${
                         isActive('/profile') 
-                        ? 'text-gold transform -translate-y-1' 
-                        : 'text-ash hover:text-gold'
+                        ? 'text-[#00D09C] transform -translate-y-1' 
+                        : 'text-ash hover:text-[#00D09C]'
                     }`}
                 >
-                    <FiUser size={24} className={isActive('/profile') ? 'fill-gold/20' : ''} />
+                    <FiUser size={24} className={isActive('/profile') ? 'fill-[#00D09C]/20' : ''} />
                     <span className="text-[10px] sm:text-xs mt-1 font-medium">Profile</span>
                 </Link>
             </div>

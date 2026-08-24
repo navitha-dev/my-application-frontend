@@ -386,9 +386,20 @@ const Register = () => {
                 </div>
 
                 {/* Footer */}
-                <p className="text-center text-ash text-xs mt-8">
-                    By registering, you agree to our <Link to="/terms-conditions" className="text-primary hover:underline font-medium">Terms</Link> & <Link to="/privacy-policy" className="text-primary hover:underline font-medium">Privacy Policy</Link>.
-                </p>
+                <div className="mt-8 text-center pb-8">
+                    <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs text-ash mb-4">
+                        <Link to="/about" className="hover:text-primary hover:underline">About Us</Link>
+                        <Link to="/contact" className="hover:text-primary hover:underline">Contact Us</Link>
+                        <Link to="/privacy-policy" className="hover:text-primary hover:underline">Privacy Policy</Link>
+                        <Link to="/terms-conditions" className="hover:text-primary hover:underline">Terms & Conditions</Link>
+                        <Link to="/refund-policy" className="hover:text-primary hover:underline">Refund & Cancellation</Link>
+                        <Link to="/shipping-policy" className="hover:text-primary hover:underline">Shipping & Delivery</Link>
+                    </div>
+                    <p className="text-[10px] text-ash/80 leading-relaxed">
+                        &copy; 2026 Royal Groww FinTech Private Limited. All Rights Reserved.<br />
+                        Category: Digital Wealth Management & Investment Advisory Platform.
+                    </p>
+                </div>
             </motion.div>
         </div>
     );

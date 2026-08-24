@@ -36,7 +36,7 @@ const FloatingSupportButton = () => {
                         {/* All Support Options */}
                         <button
                             onClick={handleSupportPageClick}
-                            className="w-full bg-gold/10 text-gold p-3 rounded-xl flex items-center justify-center hover:bg-gold/20 transition-colors border border-gold/20"
+                            className="w-full bg-primary/10 text-primary p-3 rounded-xl flex items-center justify-center hover:bg-primary/20 transition-colors border border-primary/20"
                         >
                             <FiMessageCircle size={16} className="mr-2" />
                             <span className="text-sm font-semibold">View All Support Options</span>
@@ -50,8 +50,8 @@ const FloatingSupportButton = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
-                className={`${isOpen ? 'bg-red-500' : 'bg-gradient-to-r from-gold to-gold-dark'
-                    } text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:shadow-gold/50 transition-all`}
+                className={`${isOpen ? 'bg-red-500' : 'bg-gradient-to-r from-primary to-primary-dark'
+                    } text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:shadow-primary/50 transition-all`}
             >
                 {isOpen ? (
                     <FiX size={24} />

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,183 +9,171 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
 }
 
-@layer base {
-  body {
-    @apply font-sans antialiased bg-ivory text-obsidian transition-colors duration-200;
-  }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FFFFFF;
+  /* white */
+  color: #1A1A1A;
+  /* obsidian */
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-heading tracking-tight;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Outfit', sans-serif;
 }
 
 /* Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #F5F5F5;
+  /* pearl */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
-  /* Slate-300 */
-  border-radius: 99px;
+  background: #5F68C3;
+  /* gold (now blue) */
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
-  /* Slate-400 */
+  background: #454C8F;
+  /* gold-dark (now dark blue) */
 }
 
 /* Custom Utility Classes */
 @layer components {
 
   /* Buttons */
-  /* Buttons - Android Material Style */
   .btn-primary {
-    @apply bg-primary hover:bg-primary-dark text-white font-medium py-3 px-6 rounded-full transition-all duration-200 shadow hover:shadow-md hover:-translate-y-0.5 active:scale-95 active:translate-y-0 active:shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none tracking-wide;
+    @apply bg-primary hover:bg-primary-dark text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
   }
 
   .btn-secondary {
-    @apply bg-white hover:bg-gray-50 text-obsidian font-medium py-3 px-6 rounded-full transition-all duration-200 border border-gray-200 hover:border-gray-300 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed tracking-wide shadow-sm;
+    @apply bg-white hover:bg-gray-50 text-primary font-medium py-3 px-6 rounded-lg transition-all duration-300 border border-primary;
   }
 
   .btn-outline {
-    @apply border-2 border-primary text-primary hover:bg-primary/5 font-medium py-3 px-6 rounded-full transition-all duration-200 active:scale-95 tracking-wide;
-  }
-
-  .btn-ghost {
-    @apply text-charcoal hover:text-obsidian hover:bg-gray-100 font-medium py-2 px-4 rounded-full transition-colors tracking-wide;
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300;
   }
 
   /* Cards */
   .card {
-    @apply bg-white rounded-3xl shadow-card border border-gray-100 p-6 transition-all duration-300;
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6 transition-all duration-300 hover:shadow-md;
   }
 
-  .card-hover {
-    @apply hover:shadow-lg hover:-translate-y-1;
+  .card-premium {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6 transition-all duration-300 hover:shadow-md hover:border-primary/30;
   }
 
-  /* Inputs - Android Material Outlined Text Field Style */
+  /* Inputs */
   .input-primary {
-    @apply w-full px-4 py-3.5 border-2 border-gray-200 rounded-2xl bg-white text-obsidian placeholder-gray-400 focus:outline-none focus:ring-0 focus:border-primary transition-colors duration-200 bg-transparent;
+    @apply w-full px-4 py-3 border border-ash/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 bg-white;
   }
 
   .input-error {
-    @apply border-red-500 focus:ring-0 focus:border-red-500;
+    @apply border-red-500 focus:ring-red-500;
   }
 
   /* Text Styles */
   .heading-primary {
-    @apply text-3xl md:text-4xl font-bold text-obsidian;
+    @apply text-4xl md:text-5xl font-bold text-obsidian font-heading;
   }
 
   .heading-secondary {
-    @apply text-2xl md:text-3xl font-bold text-obsidian;
+    @apply text-3xl md:text-4xl font-bold text-obsidian font-heading;
+  }
+
+  .heading-tertiary {
+    @apply text-2xl md:text-3xl font-semibold text-obsidian font-heading;
   }
 
   .text-body {
-    @apply text-base text-charcoal;
+    @apply text-base text-ash;
   }
 
   .text-accent {
-    @apply text-primary font-medium;
+    @apply text-primary font-semibold;
   }
 
-  /* Layout helpers */
+  /* Containers */
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Animations */
+  /* Gradients */
+  .gradient-gold {
+    @apply bg-gradient-to-r from-primary-light via-primary to-primary-dark;
+  }
+
+  .gradient-dark {
+    @apply bg-gradient-to-br from-charcoal to-obsidian;
+  }
+
+  /* Micro Interactions */
   .hover-lift {
-    @apply transition-transform duration-300 hover:-translate-y-1;
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
 
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_20px_rgba(0, 208, 156, 0.5)];
+  }
+
+  .pulse-gold {
+    animation: pulse-gold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Loading Spinner */
   .spinner {
-    @apply inline-block w-6 h-6 border-2 border-gray-200 border-t-primary rounded-full animate-spin;
-  }
-
-  .mask-image-vertical {
-    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    @apply inline-block w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full;
+    animation: spin 1s linear infinite;
   }
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
+/* Keyframe Animations */
+@keyframes spin {
   to {
-    opacity: 1;
-    transform: translateY(0);
+    transform: rotate(360deg);
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.30s ease-out forwards;
-}
+@keyframes pulse-gold {
 
-@keyframes marqueeVerticalAnim {
-  0% {
-    transform: translateY(0);
-  }
-
+  0%,
   100% {
-    transform: translateY(-50%);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
   }
 }
 
-.custom-marquee-vertical {
-  animation: marqueeVerticalAnim 1500s linear infinite;
-}
-
-.custom-marquee-vertical:hover {
-  animation-play-state: paused;
-}
-
-/* Mobile Tweaks */
+/* Mobile-specific styles */
 @media (max-width: 768px) {
-
-  .btn-primary,
-  .btn-secondary,
-  .btn-outline {
-    @apply py-3.5 text-sm uppercase tracking-wider;
-    /* Larger touch target, Material Button feel */
+  .heading-primary {
+    @apply text-3xl;
   }
 
-  .input-primary {
-    @apply text-base;
-    /* Prevent zoom on iOS */
+  .heading-secondary {
+    @apply text-2xl;
   }
 }
 
-/* Safe Area adjustments */
-.pb-safe {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-/* Scrollbar Hide Utilities */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Print styles */
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
 }

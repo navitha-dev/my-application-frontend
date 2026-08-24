@@ -13,7 +13,7 @@ const ThemeToggle = () => {
                 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-DEFAULT
                 ${theme === 'light'
                     ? 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-                    : 'bg-dark-card text-gold hover:bg-gray-800'}
+                    : 'bg-dark-card text-[#00D09C] hover:bg-gray-800'}
             `}
             aria-label="Toggle Dark Mode"
             title={theme === 'light' ? "Switch to Dark Mode" : "Switch to Light Mode"}

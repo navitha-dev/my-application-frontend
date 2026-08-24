@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowLeft, FiCreditCard, FiLock } from 'react-icons/fi';
@@ -13,19 +13,15 @@ const Recharge = () => {
 
     const presetAmounts = [100, 500, 1000, 2000, 5000, 10000];
 
-    const loadRazorpay = () => {
-        return new Promise((resolve) => {
-            const script = document.createElement('script');
-            script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-            script.onload = () => {
-                resolve(true);
-            };
-            script.onerror = () => {
-                resolve(false);
-            };
-            document.body.appendChild(script);
-        });
-    };
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('payment') === 'failed') {
+            const reason = params.get('reason');
+            toast.error(reason === 'hash_mismatch' ? 'Payment verification failed (signature mismatch).' : 'Payment failed. Please try again.');
+            // Clear URL params
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    }, []);
 
     const handleRecharge = async () => {
         const rechargeAmount = amount || customAmount;
@@ -37,14 +33,6 @@ const Recharge = () => {
 
         setLoading(true);
         try {
-            const res = await loadRazorpay();
-
-            if (!res) {
-                toast.error('Razorpay SDK failed to load. Are you online?');
-                setLoading(false);
-                return;
-            }
-
             const response = await apiService.wallet.initiateRecharge(
                 parseFloat(rechargeAmount),
                 'UPI'
@@ -53,51 +41,39 @@ const Recharge = () => {
             if (response.success) {
                 const { data } = response;
 
-                const options = {
-                    key: data.razorpayKeyId,
-                    amount: data.amount,
-                    currency: data.currency,
-                    name: 'Royal Zomato',
-                    description: 'Wallet Deposit',
-                    image: '/logo.png', // Ensure you have a logo or remove this
-                    order_id: data.razorpayOrderId,
-                    handler: async function (response) {
-                        try {
-                            const verifyRes = await apiService.wallet.completeRecharge(
-                                data.transactionId,
-                                response.razorpay_payment_id
-                            );
+                // Create a dynamic HTML form and submit it to redirect to PayU
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = data.payuUrl;
 
-                            if (verifyRes.success) {
-                                toast.success('Payment successful! Wallet credited.');
-                                navigate('/home');
-                            } else {
-                                toast.error(verifyRes.message || 'Payment verification failed');
-                            }
-                        } catch (error) {
-                            toast.error('Payment verification failed');
-                            console.error(error);
-                        }
-                    },
-                    prefill: {
-                        name: data.userEmail || '', // You might want to pass name too if available
-                        email: data.userEmail || '',
-                        contact: data.userContact || ''
-                    },
-                    notes: {
-                        address: 'Royal Zomato Corporate Office'
-                    },
-                    theme: {
-                        color: '#D4AF37' // Gold color
-                    }
+                const fields = {
+                    key: data.key,
+                    txnid: data.txnid,
+                    amount: data.amount,
+                    productinfo: data.productinfo,
+                    firstname: data.firstname,
+                    email: data.email,
+                    phone: data.phone,
+                    surl: data.surl,
+                    furl: data.furl,
+                    hash: data.hash,
+                    service_provider: 'payu_paisa'
                 };
 
-                const paymentObject = new window.Razorpay(options);
-                paymentObject.open();
+                for (const key in fields) {
+                    if (fields.hasOwnProperty(key)) {
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = key;
+                        input.value = fields[key];
+                        form.appendChild(input);
+                    }
+                }
 
-                paymentObject.on('payment.failed', function (response) {
-                    toast.error(response.error.description);
-                });
+                document.body.appendChild(form);
+                form.submit();
+            } else {
+                toast.error(response.message || 'Failed to initiate deposit');
             }
         } catch (error) {
             toast.error(error.message || 'Deposit failed');
@@ -105,6 +81,7 @@ const Recharge = () => {
             setLoading(false);
         }
     };
+
 
     return (
         <div className="min-h-screen bg-ivory">
@@ -211,7 +188,7 @@ const Recharge = () => {
                                 <FiCreditCard size={24} className="text-blue-600 mr-3" />
                                 <div className="flex-1">
                                     <p className="font-semibold text-obsidian">UPI / Cards / Net Banking</p>
-                                    <p className="text-xs text-ash">Powered by Razorpay</p>
+                                    <p className="text-xs text-ash">Powered by PayU</p>
                                 </div>
                                 <div className="w-4 h-4 rounded-full border-2 border-blue-600 bg-blue-600"></div>
                             </div>
