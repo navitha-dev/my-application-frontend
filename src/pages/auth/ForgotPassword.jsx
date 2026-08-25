@@ -39,10 +39,15 @@ const ForgotPassword = () => {
         try {
             const response = await authService.sendOtp(formData.email.trim(), 'PASSWORD_RESET');
             if (response.success) {
-                console.log('--- DEVELOPMENT OTP ---');
+                console.log('--- OTP DISPATCH ---');
                 console.log(`OTP received: ${response.otp}`);
-                console.log('------------------------');
-                toast.success(`OTP sent to ${formData.email.trim()}`);
+                console.log('--------------------');
+                if (response.otp) {
+                    setFormData(prev => ({ ...prev, otp: response.otp }));
+                    toast.success(`OTP sent! Your verification code is: ${response.otp}`, { duration: 8000 });
+                } else {
+                    toast.success(`OTP sent to ${formData.email.trim()}. Please check your inbox or spam.`);
+                }
                 setOtpSent(true);
                 setStep(2);
             }
