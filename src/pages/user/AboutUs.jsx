@@ -210,7 +210,7 @@ const AboutUs = () => {
                         Gurugram, Haryana - 122003<br />
                         India
                     </p>
-                    <p className="text-xs text-primary font-medium">support@royalgroww.in</p>
+                    <p className="text-xs text-primary font-medium">navithajune06@gmail.com</p>
                 </div>
 
                 <div className="h-4"></div>

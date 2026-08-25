@@ -108,7 +108,7 @@ const Support = () => {
                                 <div className="bg-purple-100 p-3 rounded-lg text-purple-600"><FiMail size={24} /></div>
                                 <div>
                                     <h3 className="font-bold text-obsidian">Email Support</h3>
-                                    <a href="mailto:support@royalgroww.com" className="text-gold font-medium">support@royalgroww.com</a>
+                                    <a href="mailto:navithajune06@gmail.com" className="text-gold font-medium">navithajune06@gmail.com</a>
                                 </div>
                             </div>
                         </div>

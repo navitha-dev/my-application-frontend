@@ -108,8 +108,8 @@ const ContactUs = () => {
                         </div>
                         <div>
                             <h3 className="font-bold text-obsidian text-base mb-1">Email Support</h3>
-                            <a href="mailto:support@royalgroww.in" className="text-sm text-primary font-semibold hover:underline">
-                                support@royalgroww.in
+                            <a href="mailto:navithajune06@gmail.com" className="text-sm text-primary font-semibold hover:underline">
+                                navithajune06@gmail.com
                             </a>
                             <p className="text-xs text-ash mt-1">Response within 12-24 hours</p>
                         </div>

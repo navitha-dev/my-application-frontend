@@ -152,8 +152,8 @@ const PrivacyPolicy = () => {
                     <p className="text-xs text-charcoal mb-4">
                         If you have queries regarding this policy, or wish to request details about the personal data stored with us, please email our security officer.
                     </p>
-                    <a href="mailto:support@royalgroww.in" className="text-sm text-primary font-semibold hover:underline">
-                        support@royalgroww.in
+                    <a href="mailto:navithajune06@gmail.com" className="text-sm text-primary font-semibold hover:underline">
+                        navithajune06@gmail.com
                     </a>
                 </div>
             </div>
