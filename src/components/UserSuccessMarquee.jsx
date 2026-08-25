@@ -59,8 +59,8 @@ const UserSuccessMarquee = () => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        // Generate 500 comments
-        setComments(generateComments(500));
+        // Generate 30 dynamic comments for smooth continuous loop
+        setComments(generateComments(30));
     }, []);
 
     if (comments.length === 0) return null;

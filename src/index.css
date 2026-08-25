@@ -160,6 +160,32 @@ h6 {
   }
 }
 
+/* Vertical Marquee Animation for Live Earnings & Payouts */
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.custom-marquee-vertical {
+  display: flex;
+  flex-direction: column;
+  animation: marquee-vertical 35s linear infinite;
+  will-change: transform;
+}
+
+.custom-marquee-vertical:hover {
+  animation-play-state: paused;
+}
+
+.mask-image-vertical {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
 /* Mobile-specific styles */
 @media (max-width: 768px) {
   .heading-primary {
